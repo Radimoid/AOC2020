@@ -1,12 +1,10 @@
 ﻿using System;
+using System.Numerics;
 
-namespace AOC2020
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+namespace AOC2020 {
+    class Program {
+        static void Main(string[] args) {
+            new Day2().PartTwo();
         }
     }
 }
