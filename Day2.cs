@@ -12,7 +12,7 @@ namespace AOC2020 {
         }
 
         static PasswordPolicy StrToPasswordPolicy(string str) {
-            Tokenizer tok = new Tokenizer(str);
+            Tools.Tokenizer tok = new Tools.Tokenizer(str);
             PasswordPolicy ret;
             ret.num1 = int.Parse(tok.Next("-"));
             ret.num2 = int.Parse(tok.Next(" "));
@@ -29,7 +29,7 @@ namespace AOC2020 {
         }
 
         static PasswordPolicy[] ReadPasswordPolicies(string input) {
-            return ParseLines(Common.ReadLines(input));
+            return ParseLines(Tools.Common.ReadLines(input));
         }
 
         static bool CheckPasswordPolicy(PasswordPolicy passwordPolicy) {
@@ -49,7 +49,7 @@ namespace AOC2020 {
             return matchCount == 1;
         }
 
-        PasswordPolicy[] passwordPolicies = ReadPasswordPolicies("input2.txt");
+        PasswordPolicy[] passwordPolicies = ReadPasswordPolicies("input02.txt");
 
         public void PartOne() {
             int count = 0;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AOC2020 {
     class Day1 {
-        int[] nums = Common.ReadInts("input1.txt");
+        int[] nums = Tools.Common.ReadInts("input01.txt");
 
         public void PartOne() {
             for (int i = 0; i < nums.Length; i++)
