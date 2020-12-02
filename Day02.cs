@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace AOC2020 {
-    class Day2 {
+    class Day02 {
         struct PasswordPolicy {
             public int num1;
             public int num2;

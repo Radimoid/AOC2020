@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace AOC2020 {
-    class Day1 {
+    class Day01 {
         int[] nums = Tools.Common.ReadInts("input01.txt");
 
         public void PartOne() {
