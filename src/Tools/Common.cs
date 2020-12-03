@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AOC2020.Tools {
+﻿namespace AOC2020.Tools {
     class Common {
         public static int[] StrsToInts(string[] strs) {
             int[] ret = new int[strs.Length];
@@ -12,7 +8,7 @@ namespace AOC2020.Tools {
         }
 
         public static string[] ReadLines(string input) {
-            return System.IO.File.ReadAllLines("..\\..\\..\\" + input);
+            return System.IO.File.ReadAllLines("..\\..\\..\\inputs\\" + input);
         }
 
         public static int[] ReadInts(string input) {
