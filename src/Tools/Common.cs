@@ -30,5 +30,26 @@ namespace AOC2020.Tools {
                     return false;
             return true;
         }
+
+        static public string Words(string str, int count, char separator = ' ') {
+            int index = -1;
+            for (int i = 0; i < count; i++) {
+                index = str.IndexOf(separator, index + 1);
+            }
+
+            return str.Substring(0, index);
+        }
+
+        static public string[] SplitStrIntoTwoParts(string str, char separator, int num) {
+            int index = -1;
+            for (int i = 0; i < num; i++) {
+                index = str.IndexOf(separator, index + 1);
+            }
+
+            string[] ret = new string[2];
+            ret[0] = str.Substring(0, index);
+            ret[1] = str.Substring(index + 1);
+            return ret;
+        }
     }
 }
