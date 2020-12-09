@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Numerics;
 
 namespace AOC2020.Tools {
     class Common {
@@ -9,12 +10,23 @@ namespace AOC2020.Tools {
             return ret;
         }
 
+        public static BigInteger[] StrsToBigIntegers(string[] strs) {
+            BigInteger[] ret = new BigInteger[strs.Length];
+            for (int i = 0; i < ret.Length; i++)
+                ret[i] = BigInteger.Parse(strs[i]);
+            return ret;
+        }
+
         public static string[] ReadLines(string input) {
             return System.IO.File.ReadAllLines(@"..\..\..\inputs\" + input);
         }
 
         public static int[] ReadInts(string input) {
             return StrsToInts(ReadLines(input));
+        }
+
+        public static BigInteger[] ReadBigIntegers(string input) {
+            return StrsToBigIntegers(ReadLines(input));
         }
 
         public static void CheckInt(int val, int min, int max) {
@@ -49,6 +61,32 @@ namespace AOC2020.Tools {
             string[] ret = new string[2];
             ret[0] = str.Substring(0, index);
             ret[1] = str.Substring(index + 1);
+            return ret;
+        }
+
+        static public BigInteger SumBigIntegers(List<BigInteger> list) {
+            BigInteger ret = list[0];
+            for (int i = 1; i < list.Count; i++) {
+                ret = ret + list[i];
+            }
+            return ret;
+        }
+
+        static public BigInteger MinBigInteger(List<BigInteger> list) {
+            BigInteger ret = list[0];
+            for (int i = 1; i < list.Count; i++) {
+                if (list[i] < ret)
+                    ret = list[i];
+            }
+            return ret;
+        }
+
+        static public BigInteger MaxBigInteger(List<BigInteger> list) {
+            BigInteger ret = list[0];
+            for (int i = 1; i < list.Count; i++) {
+                if (list[i] > ret)
+                    ret = list[i];
+            }
             return ret;
         }
     }
