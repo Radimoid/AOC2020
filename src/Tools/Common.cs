@@ -89,5 +89,17 @@ namespace AOC2020.Tools {
             }
             return ret;
         }
+
+        static public void WriteInts(List<int> list) {
+            for (int i = 0; i < list.Count; i++) 
+                System.Console.Write("{0}, ", list[i]);
+            System.Console.WriteLine();
+        }
+
+        static public void WriteInts(int[] list) {
+            for (int i = 0; i < list.Length; i++)
+                System.Console.Write("{0}, ", list[i]);
+            System.Console.WriteLine();
+        }
     }
 }
