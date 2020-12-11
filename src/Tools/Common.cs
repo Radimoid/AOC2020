@@ -17,6 +17,14 @@ namespace AOC2020.Tools {
             return ret;
         }
 
+        static public char[,] StrsToChars(string[] strs) {
+            var ret = new char[strs[0].Length, strs.Length];
+            for (int row = 0; row < strs.Length; row++)
+                for (int col = 0; col < strs[0].Length; col++)
+                    ret[col, row] = strs[row][col];
+            return ret;
+        }
+
         public static string[] ReadLines(string input) {
             return System.IO.File.ReadAllLines(@"..\..\..\inputs\" + input);
         }
