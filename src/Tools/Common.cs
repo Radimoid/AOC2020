@@ -109,5 +109,23 @@ namespace AOC2020.Tools {
                 System.Console.Write("{0}, ", list[i]);
             System.Console.WriteLine();
         }
+
+        static public int LCM(int a, int b) {
+            int num1, num2;
+            if (a > b) {
+                num1 = a; num2 = b;
+            }
+            else {
+                num1 = b; num2 = a;
+            }
+
+            for (int i = 1; i < num2; i++) {
+                int mult = num1 * i;
+                if (mult % num2 == 0) {
+                    return mult;
+                }
+            }
+            return num1 * num2;
+        }
     }
 }
