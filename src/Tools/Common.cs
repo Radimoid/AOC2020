@@ -127,5 +127,11 @@ namespace AOC2020.Tools {
             }
             return num1 * num2;
         }
+
+        static public string Substring(string str, char c1, char c2) {
+            int i1 = str.IndexOf(c1);
+            int i2 = str.IndexOf(c2, i1 + 1);
+            return str.Substring(i1 + 1, i2 - i1 - 1);
+        }
     }
 }
