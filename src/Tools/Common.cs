@@ -25,12 +25,21 @@ namespace AOC2020.Tools {
             return ret;
         }
 
-        public static string[] ReadLines(string input) {
-            return System.IO.File.ReadAllLines(@"..\..\..\inputs\" + input);
+        public static string[] ReadLines(string path) {
+            return System.IO.File.ReadAllLines(@"..\..\..\inputs\" + path);
         }
 
         public static int[] ReadInts(string input) {
             return StrsToInts(ReadLines(input));
+        }
+
+        public static int[] ReadIntsRow(string path) {
+            string line = System.IO.File.ReadAllText(@"..\..\..\inputs\" + path);
+            string[] splited = line.Split(',');
+            int[] ret = new int[splited.Length];
+            for (int i = 0; i < ret.Length; i++)
+                ret[i] = int.Parse(splited[i].Trim());
+            return ret;
         }
 
         public static BigInteger[] ReadBigIntegers(string input) {
