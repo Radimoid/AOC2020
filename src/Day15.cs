@@ -27,12 +27,22 @@ namespace AOC2020 {
         }
 
         public void PartTwo() {
-            List<int> nums = new List<int>(_input);
-            for (int iTurn = _input.Length; iTurn < 30000000; iTurn++) {
-                nums.Add(GetNext(nums));
+            Dictionary<int, int> dict = new Dictionary<int, int>();            
+            int prevNum = 0;
+            int num = 0;
+            for (int iTurn = 0; iTurn < 30000000; iTurn++) {                
+                if (iTurn < _input.Length)
+                    num = _input[iTurn];
+                else if (dict.ContainsKey(prevNum))
+                    num = iTurn - 1 - dict[prevNum];
+                else num = 0;
+
+                if (iTurn > 0)
+                    dict[prevNum] = iTurn - 1;
+                prevNum = num;
             }
 
-            Console.WriteLine(nums.Last());
+            Console.WriteLine(num);
         }
     }
 }
