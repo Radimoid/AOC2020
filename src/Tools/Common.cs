@@ -33,13 +33,17 @@ namespace AOC2020.Tools {
             return StrsToInts(ReadLines(input));
         }
 
-        public static int[] ReadIntsRow(string path) {
-            string line = System.IO.File.ReadAllText(@"..\..\..\inputs\" + path);
+        public static int[] ParseIntsLine(string line) {
             string[] splited = line.Split(',');
             int[] ret = new int[splited.Length];
             for (int i = 0; i < ret.Length; i++)
                 ret[i] = int.Parse(splited[i].Trim());
             return ret;
+        }
+
+        public static int[] ReadIntsRow(string path) {
+            string line = System.IO.File.ReadAllText(@"..\..\..\inputs\" + path);
+            return ParseIntsLine(line);
         }
 
         public static BigInteger[] ReadBigIntegers(string input) {
@@ -141,6 +145,11 @@ namespace AOC2020.Tools {
             int i1 = str.IndexOf(c1);
             int i2 = str.IndexOf(c2, i1 + 1);
             return str.Substring(i1 + 1, i2 - i1 - 1);
+        }
+
+        static public int FindNum(string str, int startPos) {
+            char[] numChars = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            return str.IndexOfAny(numChars);
         }
     }
 }
