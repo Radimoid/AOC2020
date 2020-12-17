@@ -151,5 +151,15 @@ namespace AOC2020.Tools {
             char[] numChars = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             return str.IndexOfAny(numChars);
         }
+
+        static public Dictionary<(int, int, int), char> Parse3DMap(string[] lines) {
+            var ret = new Dictionary<(int, int, int), char>();
+            for (int y = 0; y < lines.Length; y++) {
+                for (int x = 0; x < lines[y].Length; x++) {
+                    ret[(x, y, 0)] = lines[y][x];
+                }
+            }
+            return ret;
+        }      
     }
 }
