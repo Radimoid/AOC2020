@@ -4,7 +4,7 @@ using System.Numerics;
 namespace AOC2020 {
     class Program {
         static void Main(string[] args) {
-            new Day17().PartTwo();
+            new Day18().PartTwo();
         }
     }
 }
