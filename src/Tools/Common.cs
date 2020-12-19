@@ -29,12 +29,16 @@ namespace AOC2020.Tools {
             return System.IO.File.ReadAllLines(@"..\..\..\inputs\" + path);
         }
 
+        public static string ReadAllText(string path) {
+            return System.IO.File.ReadAllText(@"..\..\..\inputs\" + path);
+        }
+
         public static int[] ReadInts(string input) {
             return StrsToInts(ReadLines(input));
         }
 
-        public static int[] ParseIntsLine(string line) {
-            string[] splited = line.Split(',');
+        public static int[] ParseIntsLine(string line, char splitter = ',') {
+            string[] splited = line.Split(splitter);
             int[] ret = new int[splited.Length];
             for (int i = 0; i < ret.Length; i++)
                 ret[i] = int.Parse(splited[i].Trim());
@@ -143,7 +147,11 @@ namespace AOC2020.Tools {
 
         static public string Substring(string str, char c1, char c2) {
             int i1 = str.IndexOf(c1);
+            if (i1 < 0)
+                return string.Empty;
             int i2 = str.IndexOf(c2, i1 + 1);
+            if (i2 < 0)
+                return string.Empty;
             return str.Substring(i1 + 1, i2 - i1 - 1);
         }
 
