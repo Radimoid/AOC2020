@@ -88,15 +88,19 @@ namespace AOC2020 {
                 return null;
             }
 
-            List<Tools.Map> GetArrangements() {
+            public List<Tools.Map> GetArrangements() {
                 var ret = new List<Tools.Map>();
 
                 var newmap = _map.Identity();
                 for (int i = 0; i < 4; i++) {
-                    ret.Add(_map);
-                    ret.Add(_map.fli)
+                    ret.Add(newmap);
+                    ret.Add(newmap.FlipHor());
+                    ret.Add(newmap.FlipVer());
+                    ret.Add(newmap.FlipHor().FlipVer());
+                    newmap = newmap.Rotate();
                 }
 
+                return ret;
             }
         }
 
@@ -127,6 +131,11 @@ namespace AOC2020 {
                 return CheckInterval(_minx, _maxx, coord.Item1) && CheckInterval(_miny, _maxy, coord.Item2);
             }
             
+            bool IsOk(Tools.Map tileArrangement, (int, int) coord) {
+                var leftTile = _arrangement[(coord.Item1 - 1, coord.Item2)];
+                if (leftTile != null)
+
+            }
             public void Create(List<Tile> tiles) {
                 _unarranged = new List<Tile>();
                 foreach (var tile in tiles)
@@ -150,12 +159,10 @@ namespace AOC2020 {
                         continue;
                     string border1 = tile1.Border(direction);
                     foreach (var tile2 in _unarranged) {
-                        foreach (var direction2 in directions) {
-                                if (border1 == tile2.Border(direction2)) {
+                        var tileArrangements = tile2.GetArrangements();
+                        foreach (var tileArrangement in tileArrangements) {
 
-                                }
-                            }
-                        }
+                        }                        
                     }
                 }
             }
@@ -220,6 +227,15 @@ namespace AOC2020 {
         
         public void PartOne() {
             ReadInput();
+
+            
+            for (int i = 0; i < _tiles.Count; i++) {
+                var arrangements1 = _tiles[i].GetArrangements();
+                for (int j = 0; j < _tiles.Count; j++) {
+                    var arrangements2 = _tiles[j].GetArrangements();
+
+                }
+            }
 
             var row1 = _tiles[0].Map().FirstRow();
             List<string> suitable = new List<string>();
